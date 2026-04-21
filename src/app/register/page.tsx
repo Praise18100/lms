@@ -1,12 +1,17 @@
+'use client'
 import InstructorRegister from "@/components/pages/register/instuctorRegister";
 import StudentRegister from "@/components/pages/register/studentRegister";
 import { Box, Flex, Tabs, Text } from "@chakra-ui/react";
 import { BiUserPlus } from "react-icons/bi";
 import { FiMonitor } from "react-icons/fi";
 import { SlGraduation } from "react-icons/sl";
+import { signup } from "@/app/actions/auth";
+import { useActionState } from 'react';
 
-export default function Home() {
+
+export default function Register() {
   return (
+    
     <Box
       p={9}
       borderRadius={"2xl"}
@@ -51,11 +56,15 @@ export default function Home() {
           </Text>
 
           <Flex width="full" >
-            <Tabs.Root defaultValue="student" variant={"subtle"}>
+            <Tabs.Root defaultValue="student" variant={"subtle"} >
               <Tabs.List
                 justifyContent={"space-evenly"}
                 gap={4}
                 alignItems={"center"}
+                w={"full"}
+                mt={6}
+                display={"flex"}
+                flexDirection={{ base: "column", md: "row" }}
               >
                 <Tabs.Trigger
                   value="student"
@@ -121,7 +130,7 @@ export default function Home() {
               </Tabs.List>
               <Tabs.Content value="student">
                 <StudentRegister />
-              </Tabs.Content>
+              </Tabs.Content> 
               <Tabs.Content value="instructors">
                 <InstructorRegister />
               </Tabs.Content>
