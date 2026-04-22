@@ -5,8 +5,6 @@ import { Box, Flex, Tabs, Text } from "@chakra-ui/react";
 import { BiUserPlus } from "react-icons/bi";
 import { FiMonitor } from "react-icons/fi";
 import { SlGraduation } from "react-icons/sl";
-import { signup } from "@/app/actions/auth";
-import { useActionState } from 'react';
 
 
 export default function Register() {

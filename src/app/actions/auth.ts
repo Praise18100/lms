@@ -6,15 +6,12 @@ import { db } from '@/db';
 import { usersTable } from '@/db/schema';
 
 export async function signup(state: FormState, formData: FormData) {
-
-  // 1. Get form values
   const name = formData.get("fullname") as string;
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-  const role = formData.get("value") as string;
+  const role = formData.get("role") as string;        // was "value" in student form
   const inviteCode = formData.get("inviteCode") as string | null;
 
-  // 2. Validate BEFORE doing anything else
   const validatedFields = RegisterSchema.safeParse({
     name,
     email,
@@ -22,6 +19,7 @@ export async function signup(state: FormState, formData: FormData) {
     role,
     inviteCode,
   });
+
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -29,10 +27,8 @@ export async function signup(state: FormState, formData: FormData) {
   }
 
   try {
-    // 3. Hash password AFTER validation
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 4. Insert into database
     const data = await db
       .insert(usersTable)
       .values({
@@ -48,22 +44,25 @@ export async function signup(state: FormState, formData: FormData) {
     const user = data[0];
 
     if (!user) {
-      return {
-        message: "An error occurred while creating your account.",
-      };
+      return { message: "An error occurred while creating your account." };
     }
 
-    // 5. Success response
     return {
       message: "Account created successfully",
       userId: user.id,
     };
 
-  } catch (error) {
+  } catch (error: unknown) {
+    // Catch duplicate email (Neon/Postgres unique constraint)
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      (error as { code: string }).code === "23505"
+    ) {
+      return { message: "An account with this email already exists." };
+    }
     console.error(error);
-
-    return {
-      message: "Something went wrong. Please try again.",
-    };
+    return { message: "Something went wrong. Please try again." };
   }
 }
