@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Provider as ChakraProvider } from "@/components/ui/provider";
-import Navbar from "@/components/navbar";
+import LayoutWrapper from "@/components/layoutWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,8 +25,10 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en" className={`${inter.variable}`}>
       <body className="bg-primary-50">
         <ChakraProvider>
-          {children}
-          </ChakraProvider>
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+        </ChakraProvider>
       </body>
     </html>
   );
