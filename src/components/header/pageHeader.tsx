@@ -11,7 +11,7 @@ export default function Header() {
     <Flex
       w="full"
       h="72px"
-      px={{ base: 4, md: 8 }}
+      px={{ base: 2, md: 4 }}
       align="center"
       justify="space-between"
       borderBottom="1px solid"
@@ -21,7 +21,7 @@ export default function Header() {
       top={0}
       zIndex={10}
     >
-      <Heading size="md" color="gray.900" textTransform="capitalize">
+      <Heading size={{ base: "md", lg: "lg" }} color="gray.900" textTransform="capitalize">
         {activeItem}
       </Heading>
 

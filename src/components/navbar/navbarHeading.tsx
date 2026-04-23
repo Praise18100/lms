@@ -1,13 +1,6 @@
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Text } from "@chakra-ui/react";
 import Logo from "../logo";
 
-type NavItem = {
-  name: string;
-  role: "string";
-  count?: number;
-
-
-};
 
 export default function NavbarHeading() {
   return (
@@ -35,7 +28,9 @@ export default function NavbarHeading() {
               justify="center"
               flexShrink={0}
             >
-              AO
+             <Avatar.Root variant={"subtle"}>
+            <Avatar.Fallback name="Ada Okafor" />
+          </Avatar.Root>
             </Flex>
 
             <Box minW="0">

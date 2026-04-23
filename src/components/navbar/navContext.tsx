@@ -19,7 +19,7 @@ function getInitialActiveItem() {
     }
   }
 
-  return sections[0]?.items[0]?.label ?? "Dashboard";
+  return sections[0]?.items[0]?.id ?? "dashboard";
 }
 
 export function NavbarProvider({ children }: { children: ReactNode }) {

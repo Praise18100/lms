@@ -6,10 +6,12 @@ import NavbarHeading from "./navbarHeading";
 import { SidebarItem } from "./studentNavbarBody";
 import { sections } from "./studentNavbarBody";
 import { useNavbarState } from "./navContext";
+import { useRouter } from "next/navigation";
 
 
 export default function Navbar() {
   const { activeItem, setActiveItem } = useNavbarState();
+  const router = useRouter();
 
   return (
     <Flex
@@ -51,10 +53,11 @@ export default function Navbar() {
               <Flex direction="column" gap="2px">
                 {section.items.map((item) => (
                   <SidebarItem
-                    key={item.label}
+                    key={item.id}
                     {...item}
-                    active={activeItem === item.label}
-                    onClick={() => setActiveItem(item.label)}
+                    active={activeItem === item.id}
+                    onClick={() => { setActiveItem(item.id); router.push(`/${item.id}`); }}
+                    
                   />
                 ))}
               </Flex>

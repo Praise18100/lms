@@ -9,6 +9,7 @@ import { PiSquaresFourLight } from "react-icons/pi";
 type NavItem = {
   label: string;
   icon: IconType;
+  id: string;
   count?: number;
   active?: boolean;
 };
@@ -22,30 +23,30 @@ export const sections: NavSection[] = [
   {
     heading: "Main",
     items: [
-      { label: "Overview", icon: PiSquaresFourLight },
-      { label: "AI Assistant", icon: FiMessageSquare, },
+      { label: "Overview", icon: PiSquaresFourLight, id: "overview" },
+      { label: "AI Assistant", icon: FiMessageSquare, id: "aiAssistant" },
     ],
   },
   {
     heading: "Learning",
     items: [
-      { label: "Courses", icon: GoBook, count: 3, active: true },
-      { label: "Content", icon: FiUpload, count: 8 },
-      { label: "Students", icon: LuUsers, count: 142 },
-      { label: "Quizzes", icon: LuClock4, count: 6},
+      { label: "Courses", icon: GoBook, count: 3, active: true, id: "courses" },
+      { label: "Content", icon: FiUpload, count: 8, id: "content" },
+      { label: "Students", icon: LuUsers, count: 142, id: "students" },
+      { label: "Quizzes", icon: LuClock4, count: 6, id: "quizzes" },
     ],
   },
   {
     heading: "Analytics",
     items: [
-      { label: "Reports", icon: FiBarChart2 },
+      { label: "Reports", icon: FiBarChart2, id: "reports" },
     ],
   },
   {
     heading: "Account",
     items: [
-      { label: "Profile", icon: LiaUserSolid },
-      { label: "Settings", icon: FiSettings },
+      { label: "Profile", icon: LiaUserSolid, id: "profile" },
+      { label: "Settings", icon: FiSettings, id: "settings" },
     ],
   },
 ];

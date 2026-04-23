@@ -14,6 +14,8 @@ export default function StudentRegister() {
       {/* hidden role field — auth.ts reads formData.get("role") */}
       <input type="hidden" name="role" value="student" />
 
+      <input type="hidden" name="inviteCode" value="" />
+
       <Flex direction="column" align="center" justify="center" gap={4} my={1}>
         <Field.Root pt={{ base: 4, md: 6 }}>
           <Field.Label fontSize={{ base: "xs", md: "sm" }} color="gray.700">

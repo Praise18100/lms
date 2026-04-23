@@ -11,6 +11,7 @@ type NavItem = {
   label: string;
   icon: IconType;
   count?: number;
+  id: string;
   active?: boolean;
   onClick?: () => void;
 };
@@ -24,24 +25,24 @@ export const sections: NavSection[] = [
   {
     heading: "Main",
     items: [
-      { label: "Dashboard", icon: PiSquaresFourLight },
-      { label: "AI Tutor", icon: FiMessageSquare, count: 3 },
+      { label: "Dashboard", icon: PiSquaresFourLight, id: "dashboard" },
+      { label: "AI Tutor", icon: FiMessageSquare, count: 3, id: "aiTutor" },
     ],
   },
   {
     heading: "Learning",
     items: [
-      { label: "My courses", icon: GoBook, count: 3, active: true },
-      { label: "Quizzes", icon: LuClock4, count: 2 },
-      { label: "Learning path", icon: PiWaveSawtooth },
-      { label: "Notes", icon: IoReorderThreeOutline },
+      { label: "My courses", icon: GoBook, count: 3, active: true, id: "myCourses" },
+      { label: "Quizzes", icon: LuClock4, count: 2, id: "quizzes" },
+      { label: "Learning path", icon: PiWaveSawtooth, id: "learningPath" },
+      { label: "Notes", icon: IoReorderThreeOutline, id: "notes" },
     ],
   },
   {
     heading: "Account",
     items: [
-      { label: "Profile", icon: LiaUserSolid },
-      { label: "Settings", icon: FiSettings },
+      { label: "Profile", icon: LiaUserSolid, id: "profile" },
+      { label: "Settings", icon: FiSettings, id: "settings" },
     ],
   },
 ];
