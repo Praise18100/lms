@@ -3,7 +3,7 @@
 import { RegisterSchema, FormState } from '@/app/lib/defination';
 import bcrypt from 'bcrypt';
 import { db } from '@/db';
-import { usersTable } from '@/db/schema';
+import { studentTable, instructorTable } from '@/db/schema';
 
 export async function signup(state: FormState, formData: FormData) {
   const name = formData.get("fullname") as string;
@@ -29,17 +29,29 @@ export async function signup(state: FormState, formData: FormData) {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const data = await db
-      .insert(usersTable)
-      .values({
-        name,
-        email,
-        password: hashedPassword,
-        role,
-        inviteCode: inviteCode || undefined,
-        registeredAt: new Date(),
-      })
-      .returning({ id: usersTable.id });
+    const data = await (role === "instructor"
+      ? db
+        .insert(instructorTable)
+        .values({
+          name,
+          email,
+          password: hashedPassword,
+          role,
+          inviteCode: inviteCode || undefined,        
+          registeredAt: new Date(),
+        })
+        .returning({ id: instructorTable.id })
+      : db
+        .insert(studentTable)
+        .values({
+          name,
+          email,
+          password: hashedPassword,
+          role,
+          registeredAt: new Date(),
+        })
+        .returning({ id: studentTable.id }));
+
 
     const user = data[0];
 
@@ -49,7 +61,7 @@ export async function signup(state: FormState, formData: FormData) {
 
     return {
       message: "Account created successfully",
-      userId: user.id,
+      userId: user.id, // Return the new user's ID for session creation
     };
 
   } catch (error: unknown) {

@@ -1,8 +1,8 @@
 "use client";
 
 import { Box, Flex } from "@chakra-ui/react";
-import { sections } from "../../components/myCourses/coursesBody";
-import CourseItem from "../../components/myCourses/coursesBody";
+import { sections } from "../../../components/myCourses/coursesBody";
+import CourseItem from "../../../components/myCourses/coursesBody";
 import { useRouter } from "next/navigation";
 import SectionHeader from "@/components/header/sectionHeader";
 

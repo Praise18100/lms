@@ -72,7 +72,7 @@ export function SidebarItem({ label, icon, count, active = false }: NavItem) {
           boxSize="16px"
           color={active ? "primary.900" : "gray.500"}
         />
-        <Text fontSize={{ base: "xs", lg: "sm" }} lineHeight="1">
+        <Text fontSize={{ base: "2xs", lg: "xs"}} lineHeight="0.5">
           {label}
         </Text>
       </HStack>
@@ -82,11 +82,11 @@ export function SidebarItem({ label, icon, count, active = false }: NavItem) {
           <Flex
             minW="20px"
             h="20px"
-            px="6px"
+            px={1}
             borderRadius="full"
             align="center"
             justify="center"
-            fontSize={{ base: "xs", lg: "sm" }}
+            fontSize={{ base: "2xs", lg: "xs" }}
             fontWeight="700"
             bg={active ? "primary.900" : "#edf0f6"}
             color={active ? "white" : "gray.700"}

@@ -1,10 +1,10 @@
 import { Flex, HStack, Text } from "@chakra-ui/react";
 import { MdOutlineLayers } from "react-icons/md";
 
-export default function logo() {
+export default function Logo() {
   return (
    <Flex>
-     <HStack borderBottom="1px solid #e8ebf2" gap="10px" pb={3}>
+     <HStack gap={2} pb={3}>
               <Flex
                 w="40px"
                 h="40px"

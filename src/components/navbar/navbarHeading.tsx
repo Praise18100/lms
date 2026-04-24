@@ -6,7 +6,6 @@ export default function NavbarHeading() {
   return (
     <Flex>
       <Box>
-       <Logo />
         <Flex
           py={4}
           align="center"
@@ -23,7 +22,7 @@ export default function NavbarHeading() {
               bg="#dbe0f0"
               color="primary.900"
               fontWeight="700"
-              fontSize="12px"
+             fontSize={{ base: "xs", lg: "sm"}}
               align="center"
               justify="center"
               flexShrink={0}
@@ -35,14 +34,14 @@ export default function NavbarHeading() {
 
             <Box minW="0">
               <Text
-                fontSize={{ base: "xs", lg: "sm"}}
+                fontSize={{ base: "2xs", lg: "xs"}}
                 fontWeight="600"
                 lineHeight="1.1"
                 whiteSpace="nowrap"
               >
                 Ada Okafor
               </Text>
-              <Text fontSize={{ base: "xs", lg: "sm"}} color="gray.500" lineHeight="1.2">
+              <Text fontSize={{ base: "2xs", lg: "xs"}} color="gray.500" lineHeight="1.2">
                 Year 2 - CS
               </Text>
             </Box>

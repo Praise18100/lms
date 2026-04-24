@@ -2,10 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import { Flex } from "@chakra-ui/react";
-import Navbar from "./navbar/navbar";
+
 import { ReactNode } from "react";
 import Header from "./header/pageHeader";
 import { NavbarProvider } from "./navbar/navContext";
+import StudentNavbar from "./navbar/studentNavbar";
+import InstructorNavbar from "./navbar/instructorNavbar";
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -17,10 +19,15 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
     return <>{children}</>;
   }
 
+  
   return (
     <NavbarProvider>
       <Flex direction="row" align="stretch" minH="100vh">
-        <Navbar />
+      {pathname.startsWith("/instructor") ? (
+            <InstructorNavbar />
+          ) : (
+            <StudentNavbar />
+          )}
         <Flex flex={1} direction="column" minW={0}>
           <Header />
           <Flex flex={1} px={{ base: 4, md: 8 }} py={{ base: 4, md: 6 }} bg="primary.50">

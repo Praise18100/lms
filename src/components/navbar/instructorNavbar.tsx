@@ -3,13 +3,14 @@
 import { Box, Flex, Icon, Text } from "@chakra-ui/react";
 import { FiLogOut } from "react-icons/fi";
 import NavbarHeading from "./navbarHeading";
-import { SidebarItem } from "./studentNavbarBody";
-import { sections } from "./studentNavbarBody";
+import { SidebarItem } from "./instructorNavbarBody";
+import { sections } from "./instructorNavbarBody";
 import { useNavbarState } from "./navContext";
 import { useRouter } from "next/navigation";
+import Logo from "../logo";
 
 
-export default function Navbar() {
+export default function InstructorNavbar() {
   const { activeItem, setActiveItem } = useNavbarState();
   const router = useRouter();
 
@@ -27,20 +28,23 @@ export default function Navbar() {
       py={7}
       px={5}
     >
-      <NavbarHeading />
+      <Flex borderBottom="1px solid #e8ebf2">
+        <Logo />
+      </Flex>
+        <NavbarHeading  />
         <Flex
           pb="14px"
           align="center"
           justify="space-between"
           borderBottom="1px solid #e8ebf2"
-          gap="10px"
+          gap={2}
         >
 
         <Box pb="8px">
           {sections.map((section) => (
             <Box key={section.heading} mb="12px">
               <Text
-                mb="6px"
+                mb={0.5}
                 fontSize={{ base: "2xs", lg: "xs"}}
                 fontWeight="700"
                 color="gray.500"
@@ -56,7 +60,7 @@ export default function Navbar() {
                     key={item.id}
                     {...item}
                     active={activeItem === item.id}
-                    onClick={() => { setActiveItem(item.id); router.push(`/${item.id}`); }}
+                    // onClick={() => { setActiveItem(item.id); router.push(`/instructor/${item.id}`); }}
                     
                   />
                 ))}
@@ -77,7 +81,7 @@ export default function Navbar() {
             _hover={{ bg: "#fff0f0" }}
           >
             <Icon as={FiLogOut} boxSize="16px" />
-            <Text fontSize="15px" fontWeight="500">
+            <Text fontSize={{ base: "2xs", lg: "xs"}} fontWeight="500">
               Sign out
             </Text>
           </Flex>

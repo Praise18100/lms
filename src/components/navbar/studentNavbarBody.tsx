@@ -32,7 +32,7 @@ export const sections: NavSection[] = [
   {
     heading: "Learning",
     items: [
-      { label: "My courses", icon: GoBook, count: 3, active: true, id: "myCourses" },
+      { label: "Course content", icon: GoBook, count: 3, active: true, id: "courseContent" },
       { label: "Quizzes", icon: LuClock4, count: 2, id: "quizzes" },
       { label: "Learning path", icon: PiWaveSawtooth, id: "learningPath" },
       { label: "Notes", icon: IoReorderThreeOutline, id: "notes" },
@@ -69,7 +69,7 @@ export function SidebarItem({ label, icon, count, active = false, onClick }: Nav
           boxSize="16px"
           color={active ? "primary.900" : "gray.500"}
         />
-        <Text fontSize={{ base: "xs", lg: "sm" }} lineHeight="1">
+        <Text fontSize={{ base: "2xs", lg: "xs"}} lineHeight="0.5">
           {label}
         </Text>
       </HStack>
@@ -79,11 +79,11 @@ export function SidebarItem({ label, icon, count, active = false, onClick }: Nav
           <Flex
             minW="20px"
             h="20px"
-            px="6px"
+            px={1}
             borderRadius="full"
             align="center"
             justify="center"
-            fontSize={{ base: "xs", lg: "sm" }}
+            fontSize={{ base: "2xs", lg: "xs" }}
             fontWeight="700"
             bg={active ? "primary.900" : "#edf0f6"}
             color={active ? "white" : "gray.700"}

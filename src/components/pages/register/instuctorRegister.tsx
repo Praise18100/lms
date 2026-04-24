@@ -5,10 +5,20 @@ import { Flex } from "@chakra-ui/react/flex";
 import { Text } from "@chakra-ui/react/text";
 import Link from "next/link";
 import { useActionState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function InstructorRegister() {
   const [state, action, pending] = useActionState(signup, undefined);
+  const router = useRouter();
 
+  useEffect(() => {
+  if (state?.message === "Account created successfully") {
+    router.push("/login");
+  }
+}, [state?.message, router]);
+ 
   return (
     <form action={action}>
       {/* hidden role field — auth.ts reads formData.get("role") */}
@@ -91,12 +101,15 @@ export default function InstructorRegister() {
         )}
 
         {state?.message && (
-          <Text
-            color={state.message === "Account created successfully" ? "green.500" : "red.500"}
-            fontSize="xs"
-          >
-            {state.message}
-          </Text>
+          <>
+            {state.message === "Account created successfully" }
+            <Text
+              color={state.message === "Account created successfully" ? "green.500" : "red.500"}
+              fontSize="xs"
+            >
+              {state.message}
+            </Text>
+          </>
         )}
 
         <Button
@@ -111,6 +124,7 @@ export default function InstructorRegister() {
           fontSize={{ base: "xs", md: "sm" }}
         >
           Create Account
+         
         </Button>
 
         <Text color="gray.400" fontSize={{ base: "xs", md: "sm" }}>
