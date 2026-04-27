@@ -1,18 +1,40 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { RxLayers } from "react-icons/rx";
-import {
-  Field,
-  Input,
-  Button,
-  Checkbox,
-  VStack,
-} from "@chakra-ui/react";
+import { Field, Input, Button, Checkbox, VStack } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react/box";
 import { Flex } from "@chakra-ui/react/flex";
 import { Text } from "@chakra-ui/react/text";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
+import { loginUser } from "@/app/actions/login";
 
 export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrorMessage("");
+    const result = await loginUser(email, password);
+
+    if (!result.ok) {
+      setErrorMessage(result.message ?? "Login failed");
+      return;
+    }
+
+    if (result.role === "instructor") {
+      router.push("/instructor/dashboard");
+    } else if (result.role === "student") {
+      router.push("/student/dashboard");
+    } else {
+      setErrorMessage("Invalid user role");
+    }
+  };
   return (
     <Box
       p={9}
@@ -25,7 +47,9 @@ export default function Login() {
       borderWidth={"1px"}
       boxShadow={"2px 2px 10px rgba(0,0,0,0.1)"}
     >
-      <Box>
+      <form
+      onSubmit={handleSubmit}
+      >
         <Flex
           justify={"flex-start"}
           w={"10"}
@@ -64,10 +88,14 @@ export default function Login() {
             </Field.Label>
             <Input
               placeholder="ada@university.edu"
+              type="email"
+              required
               p={4}
               borderRadius={"xl"}
               _placeholder={{ color: "black" }}
               fontSize={"xs"}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Field.Root>
 
@@ -78,12 +106,21 @@ export default function Login() {
             <Input
               placeholder="********"
               type="password"
+              required
               p={4}
               borderRadius={"xl"}
               _placeholder={{ color: "black" }}
               fontSize={"xs"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Field.Root>
+
+          {errorMessage ? (
+            <Text fontSize={{ base: "xs", md: "sm" }} color={"red.500"}>
+              {errorMessage}
+            </Text>
+          ) : null}
 
           <Box
             w={"full"}
@@ -116,7 +153,7 @@ export default function Login() {
               colorScheme="brand"
               fontSize={{ base: "xs", md: "sm" }}
             >
-              <Link href="/dashboard">Sign In</Link>
+              Sign In
             </Button>
 
             <Text color={"gray.400"} fontSize={{ base: "2xs", md: "xs" }}>
@@ -152,7 +189,7 @@ export default function Login() {
             </Text>
           </VStack>
         </Flex>
-      </Box>
+      </form>
     </Box>
   );
 }

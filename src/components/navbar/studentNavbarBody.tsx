@@ -23,18 +23,13 @@ type NavSection = {
 
 export const sections: NavSection[] = [
   {
-    heading: "Main",
+    heading: "Student",
     items: [
       { label: "Dashboard", icon: PiSquaresFourLight, id: "dashboard" },
-      { label: "AI Tutor", icon: FiMessageSquare, count: 3, id: "aiTutor" },
-    ],
-  },
-  {
-    heading: "Learning",
-    items: [
       { label: "Course content", icon: GoBook, count: 3, active: true, id: "courseContent" },
+      { label: "AI Tutor", icon: FiMessageSquare, count: 3, id: "aiTutor" },
       { label: "Quizzes", icon: LuClock4, count: 2, id: "quizzes" },
-      { label: "Learning path", icon: PiWaveSawtooth, id: "learningPath" },
+      { label: "My progress", icon: PiWaveSawtooth, id: "myProgress" },
       { label: "Notes", icon: IoReorderThreeOutline, id: "notes" },
     ],
   },

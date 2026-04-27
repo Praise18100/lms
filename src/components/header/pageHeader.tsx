@@ -1,11 +1,23 @@
 "use client";
 
-import { Box, Flex, Heading, Icon, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Input, Avatar } from "@chakra-ui/react";
 import { FiBell, FiSearch } from "react-icons/fi";
 import { useNavbarState } from "../navbar/navContext";
+import { getSessionUser } from "@/app/actions/login";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const { activeItem } = useNavbarState();
+  const [fullname, setFullname] = useState("User");
+
+  useEffect(() => {
+      getSessionUser().then((user) => {
+        if (user) {
+          setFullname(user.name);
+        }
+      });
+    }, []);
+  
 
   return (
     <Flex
@@ -21,7 +33,11 @@ export default function Header() {
       top={0}
       zIndex={10}
     >
-      <Heading size={{ base: "md", lg: "lg" }} color="gray.900" textTransform="capitalize">
+      <Heading
+        size={{ base: "md", lg: "lg" }}
+        color="gray.900"
+        textTransform="capitalize"
+      >
         {activeItem}
       </Heading>
 
@@ -75,15 +91,17 @@ export default function Header() {
           w="32px"
           h="32px"
           borderRadius="full"
-          bg="#dbe0f0"
+          bg="primary.50"
           color="primary.900"
           fontWeight="700"
-          fontSize="12px"
+          fontSize={{ base: "xs", lg: "sm" }}
           align="center"
           justify="center"
           flexShrink={0}
         >
-          AO
+          <Avatar.Root variant={"subtle"}>
+            <Avatar.Fallback name={fullname} />
+          </Avatar.Root>
         </Flex>
       </Flex>
     </Flex>

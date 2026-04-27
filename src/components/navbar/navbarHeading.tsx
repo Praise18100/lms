@@ -1,8 +1,22 @@
-import { Avatar, Box, Flex, HStack, Text } from "@chakra-ui/react";
-import Logo from "../logo";
+"use client";
 
+import { Avatar, Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { getSessionUser } from "@/app/actions/login";
+import { useEffect, useState } from "react";
 
 export default function NavbarHeading() {
+  const [fullname, setFullname] = useState("User");
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    getSessionUser().then((user) => {
+      if (user) {
+        setFullname(user.name);
+        setRole(user.role);
+      }
+    });
+  }, []);
+
   return (
     <Flex>
       <Box>
@@ -28,7 +42,7 @@ export default function NavbarHeading() {
               flexShrink={0}
             >
              <Avatar.Root variant={"subtle"}>
-            <Avatar.Fallback name="Ada Okafor" />
+            <Avatar.Fallback name={fullname} />
           </Avatar.Root>
             </Flex>
 
@@ -39,10 +53,10 @@ export default function NavbarHeading() {
                 lineHeight="1.1"
                 whiteSpace="nowrap"
               >
-                Ada Okafor
+                {fullname}
               </Text>
               <Text fontSize={{ base: "2xs", lg: "xs"}} color="gray.500" lineHeight="1.2">
-                Year 2 - CS
+                {role}
               </Text>
             </Box>
           </HStack>

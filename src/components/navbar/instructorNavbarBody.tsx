@@ -1,5 +1,10 @@
 import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react";
-import { FiBarChart2, FiMessageSquare, FiSettings, FiUpload } from "react-icons/fi";
+import {
+  FiBarChart2,
+  FiMessageSquare,
+  FiSettings,
+  FiUpload,
+} from "react-icons/fi";
 import { GoBook } from "react-icons/go";
 import { IconType } from "react-icons/lib";
 import { LiaUserSolid } from "react-icons/lia";
@@ -9,9 +14,10 @@ import { PiSquaresFourLight } from "react-icons/pi";
 type NavItem = {
   label: string;
   icon: IconType;
-  id: string;
   count?: number;
+  id: string;
   active?: boolean;
+  onClick?: () => void;
 };
 
 type NavSection = {
@@ -21,25 +27,26 @@ type NavSection = {
 
 export const sections: NavSection[] = [
   {
-    heading: "Main",
+    heading: "Instructor",
     items: [
-      { label: "Overview", icon: PiSquaresFourLight, id: "overview" },
-      { label: "AI Assistant", icon: FiMessageSquare, id: "aiAssistant" },
-    ],
-  },
-  {
-    heading: "Learning",
-    items: [
-      { label: "Courses", icon: GoBook, count: 3, active: true, id: "courses" },
-      { label: "Content", icon: FiUpload, count: 8, id: "content" },
+      { label: "Dashboard", icon: PiSquaresFourLight, id: "dashboard" },
+      {
+        label: "Upload content",
+        icon: FiUpload,
+        count: 8,
+        id: "uploadContent",
+      },
+      { label: "AI Processing", icon: LuClock4, id: "aiProcessing" },
+      {
+        label: "Content library",
+        icon: GoBook,
+        count: 3,
+        active: true,
+        id: "contentLibrary",
+      },
+      { label: "Quiz builders", icon: LuClock4, count: 6, id: "quizBuilders" },
       { label: "Students", icon: LuUsers, count: 142, id: "students" },
-      { label: "Quizzes", icon: LuClock4, count: 6, id: "quizzes" },
-    ],
-  },
-  {
-    heading: "Analytics",
-    items: [
-      { label: "Reports", icon: FiBarChart2, id: "reports" },
+      { label: "Analytics", icon: FiBarChart2, id: "analytics" },
     ],
   },
   {
@@ -51,7 +58,7 @@ export const sections: NavSection[] = [
   },
 ];
 
-export function SidebarItem({ label, icon, count, active = false }: NavItem) {
+export function SidebarItem({ label, icon, count, active = false, onClick }: NavItem) {
   return (
     <Flex
       align="center"
@@ -63,6 +70,7 @@ export function SidebarItem({ label, icon, count, active = false }: NavItem) {
       bg={active ? "primary.100" : "transparent"}
       fontWeight={active ? "500" : "400"}
       cursor="pointer"
+      onClick={onClick}
       transition="background 0.2s ease"
       _hover={{ bg: active ? "primary.200" : "gray.200" }}
     >

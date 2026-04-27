@@ -4,36 +4,60 @@ import { Button, Flex, Text, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useNavbarState } from "../navbar/navContext";
 
-type SectionMeta = {
+type SectionItem = {
+  feature: string;
   info: string;
   button?: string;
   href?: string;
 };
 
-const sectionMeta: Record<string, SectionMeta> = {
-  Dashboard: { info: "Welcome back, Ada" },
-  AITutor: { info: "Answering from Your Course Material", button: "Back" },
-  Courses: {
+const sections: Record<string, SectionItem> = {
+  aiTutor: {
+    feature: "AI Tutor",
+    info: "Answering from Your Course Material",
+    button: "Back",
+    href: "/student/dashboard",
+  },
+  courseContent: {
+    feature: "Courses",
     info: "3 enrolled · 2 in progress",
     button: "Browse Courses",
     href: "/courses",
   },
-  Quizzes: { info: "2 due this week · 24 completed" },
-  LearningPath: { info: "AI-personalised based on your quiz scores and activity" },
-  Notes: { info: "12 notes across 3 courses", button: "New Notes", href: "/notes" },
-  Profile: { info: "Manage your personal information", button: "Save Changes" },
-  Settings: { info: "Manage your preferences", button: "Save" },
+  quizzes: { feature: "Quizzes", info: "2 due this week · 24 completed" },
+  learningPath: {
+    feature: "Learning Path",
+    info: "AI-personalised based on your quiz scores and activity",
+  },
+  notes: {
+    feature: "Notes",
+    info: "12 notes across 3 courses",
+    button: "New Notes",
+    href: "/notes",
+  },
+  profile: {
+    feature: "Profile",
+    info: "Manage your personal information",
+    button: "Save Changes",
+  },
+  settings: {
+    feature: "Settings",
+    info: "Manage your preferences",
+    button: "Save",
+  },
 };
 
 export default function SectionHeader() {
-  const { activeItem } = useNavbarState();
-  const meta = sectionMeta[activeItem] ?? { info: "" };
+  const { activeId } = useNavbarState();
+  const section = sections[activeId] ?? { feature: activeId, info: "" };
+  const { feature, info, button, href } = section;
+ 
 
   return (
     <Flex
       w="full"
       h="72px"
-      px={{ base: 1, md: 2 }}
+      px={{ base: 4, md: 6 }}
       align="center"
       justify="space-between"
       bg="primary.50"
@@ -50,25 +74,24 @@ export default function SectionHeader() {
           textTransform="capitalize"
           lineHeight="1.2"
         >
-          {activeItem}
+          {feature}
         </Text>
 
-        {meta.info && (
+      
           <Text fontSize="sm" color="gray.500">
-            {meta.info}
+           {info}
           </Text>
-        )}
       </VStack>
 
-      {meta.button && meta.href && (
-        <Link href={meta.href}>
+      {button && href && (
+        <Link href={href}>
           <Button
             px={4}
             borderRadius="xl"
             colorPalette="primary"
             fontSize={{ base: "xs", md: "sm" }}
           >
-            {meta.button}
+            {button}
           </Button>
         </Link>
       )}

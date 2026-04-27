@@ -1,12 +1,18 @@
 "use client";
-import SectionHeader from "@/components/header/sectionHeader";
-import { Flex } from "@chakra-ui/react";
+
+import DashboardHeader from "@/components/student/dashboard/dashboardHeader";
+import { Flex, Text } from "@chakra-ui/react";
+import Section1 from "@/components/student/dashboard/section1";
+import Section2 from "@/components/student/dashboard/section2";
 
 export default function Dashboard() {
   return (
-    <Flex direction="column" w="full" px={5}>
-      <SectionHeader />
-      <div>page</div>
+    <Flex direction="column" w="full" px={{ base: 2, md: 4 }}>
+      <DashboardHeader />
+      <Flex gap={5} direction={{ base: "row", lg: "column" }}>
+        <Section1 />
+        <Section2 />
+      </Flex>
     </Flex>
   );
 }

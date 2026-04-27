@@ -11,7 +11,7 @@ import Logo from "../logo";
 
 
 export default function InstructorNavbar() {
-  const { activeItem, setActiveItem } = useNavbarState();
+  const { activeId } = useNavbarState();
   const router = useRouter();
 
   return (
@@ -59,8 +59,8 @@ export default function InstructorNavbar() {
                   <SidebarItem
                     key={item.id}
                     {...item}
-                    active={activeItem === item.id}
-                    // onClick={() => { setActiveItem(item.id); router.push(`/instructor/${item.id}`); }}
+                    active={activeId === item.id}
+                    onClick={() => { router.push(`/instructor/${item.id}`); }}
                     
                   />
                 ))}
