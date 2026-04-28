@@ -87,6 +87,7 @@ const config = defineConfig({
         },
       },
     },
+    
     semanticTokens: {
       colors: {
         // --- Chakra color palette tokens ---

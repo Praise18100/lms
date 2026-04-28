@@ -14,13 +14,13 @@ type SectionItem = {
 const sections: Record<string, SectionItem> = {
   aiTutor: {
     feature: "AI Tutor",
-    info: "Answering from Your Course Material",
+    info: "Answers from your course material only — guided learning mode",
     button: "Back",
     href: "/student/dashboard",
   },
   courseContent: {
-    feature: "Courses",
-    info: "3 enrolled · 2 in progress",
+    feature: "Course Content",
+    info: "4 enrolled · 3 in progress",
     button: "Browse Courses",
     href: "/courses",
   },
@@ -57,18 +57,18 @@ export default function SectionHeader() {
     <Flex
       w="full"
       h="72px"
-      px={{ base: 4, md: 6 }}
+      px={{ base: 2, md: 4 }}
       align="center"
       justify="space-between"
       bg="primary.50"
       borderColor="gray.200"
       position="sticky"
       top={0}
-      zIndex={10}
+      // zIndex={10}
     >
       <VStack align="flex-start" gap={0.5}>
         <Text
-          fontSize={{ base: "md", lg: "lg" }}
+          fontSize={{ base: "md", md: "lg" }}
           fontWeight="700"
           color="gray.900"
           textTransform="capitalize"
@@ -78,7 +78,7 @@ export default function SectionHeader() {
         </Text>
 
       
-          <Text fontSize="sm" color="gray.500">
+          <Text fontSize="xs" color="gray.500">
            {info}
           </Text>
       </VStack>

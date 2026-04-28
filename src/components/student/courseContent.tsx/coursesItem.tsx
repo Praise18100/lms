@@ -4,6 +4,7 @@ import { FiActivity, FiBookOpen } from "react-icons/fi";
 import { IconType } from "react-icons/lib";
 import { LuDatabase } from "react-icons/lu";
 import { Box, Flex, Icon, Text, VStack } from "@chakra-ui/react";
+import { HiMiniCodeBracket } from "react-icons/hi2";
 
 type CourseItem = {
   icon: IconType;
@@ -50,6 +51,17 @@ export const sections: CourseItem[] = [
     lecturer: "Dr. Ajayi",
     studentCount: "35 students",
     progress: 15,
+   accentColor: "primary.500",
+    headerBg: "primary.100",
+  },
+  {
+    icon: HiMiniCodeBracket,
+    label: "In progress",
+    duration: "Week 6/12",
+    course: "Software Development",
+    lecturer: "Dr. James",
+    studentCount: "55 students",
+    progress: 51,
    accentColor: "primary.500",
     headerBg: "primary.100",
   },

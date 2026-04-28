@@ -45,7 +45,7 @@ export default function Section1() {
               w="37px"
               h="37px"
               borderRadius="full"
-              bg="primary.50"
+              bg="primary.0"
               color="primary.900"
               fontWeight="700"
               fontSize={{ base: "s", md: "md" }}
@@ -74,7 +74,7 @@ export default function Section1() {
             overflow="hidden"
             direction={"column"}
           >
-            <Box h="full" w={`68%`} borderRadius="full" bg={"primary.500"} />
+            <Box h="full" w={`68%`} borderRadius="full" bg={"primary.700"} />
           </Box>
           {/* </Flex> */}
         </VStack>

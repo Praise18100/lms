@@ -1,24 +1,25 @@
 "use client";
 
 import { Box, Flex } from "@chakra-ui/react";
-import { sections } from "../../../components/myCourses/coursesBody";
-import CourseItem from "../../../components/myCourses/coursesBody";
+import { sections } from "../../../components/student/courseContent.tsx/coursesItem";
+import CourseItem from "../../../components/student/courseContent.tsx/coursesItem";
 import { useRouter } from "next/navigation";
 import SectionHeader from "@/components/header/sectionHeader";
+import RecentTopics from "@/components/student/courseContent.tsx/recentTopics";
 
 export default function Navbar() {
   const router = useRouter();
 
   return (
-    <Flex direction="column" w="full" px={0}>
-      <SectionHeader />
-      <Flex py={4} align="center" justify="space-between">
+    <Box w={"full"}>
+        <SectionHeader />
+    <Flex direction="column" w="full" gap={4} p={{ base: 5, md: 7 }}>
+      <Flex align="center" justify="space-between" direction={{ base: "column", md: "row" }} gap={3}>
         <Box
           pb="8px"
           w="full"
          
           borderRadius="24px"
-          p={{ base: 3, md: 4 }}
         >
           <Flex
             direction={{ base: "column", lg: "row" }}
@@ -46,6 +47,8 @@ export default function Navbar() {
           </Flex>
         </Box>
       </Flex>
+      <RecentTopics />
     </Flex>
+        </Box>
   );
 }
