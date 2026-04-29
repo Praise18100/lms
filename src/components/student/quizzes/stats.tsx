@@ -26,17 +26,18 @@ export const sections: SectionItem[] = [
 
 export default function Stats() {
   return (
-    <Flex gap={4} align={"center"} w={"full"}>
+    <Flex gap={8} align={"center"} w={"full"} pb={{ base: 8, md: 10 }} pt={{ base: 3, md: 5 }}>
       {sections.map(({ count, info }, index) => (
         <Flex
           key={index}
           direction={"column"}
           align={"center"}
           justify={"flex-end"}
-          bg={"primary.200"}
-          borderRadius={"10px"}
+          bg={"primary.800"}
+          borderRadius={"25px"}
           border={"1px solid"}
-          borderColor={"primary.400"}
+          borderColor={"primary.900"}
+          borderWidth={"9"}
           p={4}
           w={"full"}
           flex={1}
@@ -47,16 +48,16 @@ export default function Stats() {
           }}
         >
           <Text
-            fontSize={{ base: "md", md: "lg" }}
+            fontSize={{ base: "md", md: "2xl" }}
             fontWeight="700"
-            color="primary.900"
+            color="primary.200"
             textAlign={"center"}
           >
             {count}
           </Text>
           <Text
-            fontSize={{ base: "2xs", md: "xs" }}
-            color="gray.600"
+            fontSize={{ base: "xs", md: "sm" }}
+            color="gray.900"
             textAlign={"center"}
           >
             {info}

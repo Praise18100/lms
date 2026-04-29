@@ -3,13 +3,20 @@ import React from "react";
 
 export default function Chat() {
   return (
-    <Flex w={"full"} justify={"flex-start"} direction={"column"}>
+    <Flex
+      w={"full"}
+      justify={"flex-start"}
+      direction={"column"}
+      border={"1px solid"}
+      borderTopRadius={"20px"}
+      borderColor={"primary.700"}
+    >
       <Flex
         direction={"row"}
         w={"full"}
         bg={"primary.900"}
         p={4}
-        borderTopRadius={"18px"}
+        borderTopRadius={"20px"}
         border={"1px solid"}
         justify={"space-between"}
       >
@@ -31,21 +38,47 @@ export default function Chat() {
         </Flex>
       </Flex>
 
-      <Flex bg={"primary.200"} justify={"space-between"} direction={"column"}>
-        <Flex bg={"white"} p={2.5} justify={"flex-start"} m={5} borderRadius={"18px"}>
-          <Text fontSize={{base: "xx-small", md: "xs"}}>
+      <Flex
+        bg={"primary.200"}
+        justify={"space-between"}
+        direction={"column"}
+        h={"full"}
+        py={4}
+      >
+        <Flex
+          bg={"white"}
+          p={2.5}
+          justify={"flex-start"}
+          m={5}
+          borderRadius={"18px"}
+        >
+          <Text fontSize={{ base: "xx-small", md: "xs" }}>
             Hi Ada! I'm your AI tutor for Data Structures. I've read all your
             course material from Weeks 1–3. What would you like to understand
             today?
           </Text>
         </Flex>
-        <Flex bg={"primary.900"} p={2.5} w={"fit"} justify={"self-end"} m={5} ml={"auto"} borderRadius={"18px"}>
-          <Text color={"white"} fontSize={{base: "xx-small", md: "xs"}}>
+        <Flex
+          bg={"primary.900"}
+          p={2.5}
+          w={"fit"}
+          justify={"self-end"}
+          m={5}
+          ml={"auto"}
+          borderRadius={"18px"}
+        >
+          <Text color={"white"} fontSize={{ base: "xx-small", md: "xs" }}>
             I don't understand BST deletion when a node has two children
           </Text>
         </Flex>
-        <Flex bg={"white"} p={2.5} justify={"flex-start"} m={5} borderRadius={"18px"}>
-          <Text fontSize={{base: "xx-small", md: "xs"}}>
+        <Flex
+          bg={"white"}
+          p={2.5}
+          justify={"flex-start"}
+          m={5}
+          borderRadius={"18px"}
+        >
+          <Text fontSize={{ base: "xx-small", md: "xs" }}>
             Great question — this is the trickiest deletion case! When the node
             has two children, we can't just remove it because we'd break the BST
             structure. Here's the key idea from your Week 3 notes: find the

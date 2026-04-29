@@ -31,25 +31,26 @@ export const sections: PendingQuiz[] = [
 export default function PendingQuizzes() {
   return (
     <Flex>
-      <Flex gap={5} direction={"row"} w={"full"} borderRadius={"18px"}>
+      <Flex gap={10} direction={"row"} w={"full"} borderRadius={"18px"} pb={{ base: 8, md: 10 }}>
         {sections.map(
           ({ label, timeleft, course, topic, questions, duration }, index) => (
-            <Flex key={index} direction={"column"} flex={1} gap={3} justify={"column"}>
+            <Flex key={index} direction={"column"} flex={1} gap={3} justify={"column"} borderColor={"primary.900"}>
               <Flex
                 w={"full"}
                 direction={"column"}
-                gap={3}
+                gap={6}
                 bg={"white"}
                 border={"1px solid"}
-                borderColor={"#D7DDE7"}
+                borderColor={"primary.600"}
                 borderRadius={"18px"}
+
               >
                 <Flex
                   justify={"space-between"}
                   borderTopRadius={"18px"}
                   p={4}
                   direction={"row"}
-                  bg={"primary.400"}
+                  bg={"primary.200"}
                 >
                   <Flex align="center" justify="flex-start">
                     <Text fontSize="xs" fontWeight="600">
@@ -57,7 +58,7 @@ export default function PendingQuizzes() {
                     </Text>
                   </Flex>
                   <Flex align="center" justify="flex-end">
-                    <Text fontSize="xs" color={"primary.800"}>
+                    <Text fontSize="xs" color={"primary.900"}>
                       {timeleft}
                     </Text>
                   </Flex>

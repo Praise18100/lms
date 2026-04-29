@@ -101,7 +101,7 @@ export default function Courses({
         h="78px"
         align="center"
         justify="center"
-        bg={headerBg}
+        bg={active ? "primary.700" : "primary.900"}
         color={accentColor}
       >
         <Icon as={icon} boxSize={8} strokeWidth={2.1} />

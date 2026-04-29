@@ -7,7 +7,7 @@ import { Flex } from "@chakra-ui/react";
 
 export default function Quizzes() {
   return (
-    <Flex direction="column" w="full" px={5} gap={{ base: 7, md: 9 }}>
+    <Flex direction="column" w="full" px={{ base: 7, md: 9 }}>
       <SectionHeader />
       <Stats />
       <PendingQuizzes />

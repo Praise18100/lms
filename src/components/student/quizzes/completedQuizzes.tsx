@@ -64,10 +64,16 @@ export default function CompletedQuizzes() {
           justify={"space-between"}
           borderBottom={"1px solid #E8EBF2"}
           pb={4}
+          px={3}
         >
           <Flex align="center" justify="flex-start">
             <Text fontSize="xs" fontWeight="600">
-              Recent Topics
+              Completed Quizzes
+            </Text>
+          </Flex>
+          <Flex align="center" justify="flex-end">
+            <Text fontSize="xs" color={"primary.900"} fontWeight={"600"}>
+              see all
             </Text>
           </Flex>
         </Flex>

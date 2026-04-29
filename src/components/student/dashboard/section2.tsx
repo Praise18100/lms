@@ -40,6 +40,11 @@ export const sections: UpcomingQuiz[] = [
     info: " Due Next Week · 10 Questions",
     button: "upcoming",
   },
+  {
+    title: "Quiz 2: Sorting Algorithms",
+    info: " Due Next Week · 10 Questions",
+    button: "upcoming",
+  },
 ];
 
 export default function Section2() {

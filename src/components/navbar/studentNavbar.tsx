@@ -19,7 +19,7 @@ export default function StudentNavbar() {
        direction="column"
        justify="space-between"
        w="35vh"
-       h="100vh"
+       h="87vh"
        // bg="primary.50"
        border="10px solid gray.900"
        borderWidth="0 1px"
@@ -33,11 +33,9 @@ export default function StudentNavbar() {
        </Flex>
          <NavbarHeading  />
          <Flex
-           pb="14px"
+           pb="2px"
            align="center"
            justify="space-between"
-           borderBottom="1px solid #e8ebf2"
-           gap={2}
          >
  
          <Box pb="8px">
@@ -72,6 +70,7 @@ export default function StudentNavbar() {
      {/* Sign Out */}
            <Flex
              align="center"
+             justify="page-end"
              gap="10px"
              px={2}
              py="8px"

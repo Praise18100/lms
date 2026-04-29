@@ -96,6 +96,7 @@ export default function Info() {
           <Text
             fontSize="xs"
             bg={"gray.100"}
+             p={2}
             borderRadius={"12px"}
             color={"primary.800"}
           >

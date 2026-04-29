@@ -31,7 +31,7 @@ export default function NavbarHeading() {
           <HStack gap="10px" minW="0">
             <Flex
               w="32px"
-              h="32px"
+              h="full"
               borderRadius="full"
               bg="#dbe0f0"
               color="primary.900"

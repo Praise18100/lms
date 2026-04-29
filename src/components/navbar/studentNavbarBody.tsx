@@ -30,13 +30,11 @@ export const sections: NavSection[] = [
       { label: "AI Tutor", icon: FiMessageSquare, count: 3, id: "aiTutor" },
       { label: "Quizzes", icon: LuClock4, count: 2, id: "quizzes" },
       { label: "My progress", icon: PiWaveSawtooth, id: "myProgress" },
-      { label: "Notes", icon: IoReorderThreeOutline, id: "notes" },
     ],
   },
   {
     heading: "Account",
     items: [
-      { label: "Profile", icon: LiaUserSolid, id: "profile" },
       { label: "Settings", icon: FiSettings, id: "settings" },
     ],
   },
@@ -57,6 +55,8 @@ export function SidebarItem({ label, icon, count, active = false, onClick }: Nav
       onClick={onClick}
       transition="background 0.2s ease"
       _hover={{ bg: active ? "primary.200" : "gray.200" }}
+      flexShrink={0}
+      whiteSpace="nowrap"
     >
       <HStack gap={3} px={2}>
         <Icon

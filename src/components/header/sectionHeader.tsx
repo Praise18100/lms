@@ -25,24 +25,13 @@ const sections: Record<string, SectionItem> = {
     href: "/courses",
   },
   quizzes: { feature: "Quizzes", info: "2 due this week · 24 completed" },
-  learningPath: {
-    feature: "Learning Path",
-    info: "AI-personalised based on your quiz scores and activity",
-  },
-  notes: {
-    feature: "Notes",
-    info: "12 notes across 3 courses",
-    button: "New Notes",
-    href: "/notes",
-  },
-  profile: {
-    feature: "Profile",
-    info: "Manage your personal information",
-    button: "Save Changes",
+  myProgress: {
+    feature: "My Progress",
+    info: "AI-tracked learning journey",
   },
   settings: {
     feature: "Settings",
-    info: "Manage your preferences",
+    info: "Manage your account and preferences",
     button: "Save",
   },
 };
@@ -51,7 +40,6 @@ export default function SectionHeader() {
   const { activeId } = useNavbarState();
   const section = sections[activeId] ?? { feature: activeId, info: "" };
   const { feature, info, button, href } = section;
- 
 
   return (
     <Flex
@@ -77,10 +65,9 @@ export default function SectionHeader() {
           {feature}
         </Text>
 
-      
-          <Text fontSize="xs" color="gray.500">
-           {info}
-          </Text>
+        <Text fontSize="xs" color="gray.500">
+          {info}
+        </Text>
       </VStack>
 
       {button && href && (
