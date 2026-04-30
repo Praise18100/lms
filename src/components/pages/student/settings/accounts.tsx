@@ -68,6 +68,7 @@ export default function Accounts() {
           </Field.Label>
           <Input
             value={fullname}
+            textTransform={"capitalize"}
             onChange={(event) => setFullname(event.target.value)}
             borderColor="gray.200"
             p={4}
@@ -99,6 +100,7 @@ export default function Accounts() {
           </Field.Label>
           <Input
             value={role}
+            textTransform={"capitalize"}
             readOnly
             borderRadius="xl"
             p={4}

@@ -86,9 +86,10 @@ export default function ContentProgress() {
                 <Text
                   minW="40px"
                   textAlign="right"
-                  fontSize={{ base: "xs", md: "sm" }}
+                  fontSize={{ base: "2xs", md: "xs" }}
                   fontWeight="700"
                   color="gray.500"
+                  whiteSpace="nowrap"
                 >
                   {typeof progress === "number" ? `${progress}%` : progress}
                 </Text>

@@ -1,7 +1,6 @@
 import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react";
 import {
   FiBarChart2,
-  FiMessageSquare,
   FiSettings,
   FiUpload,
 } from "react-icons/fi";
@@ -44,7 +43,7 @@ export const sections: NavSection[] = [
         active: true,
         id: "contentLibrary",
       },
-      { label: "Quiz builders", icon: LuClock4, count: 6, id: "quizBuilders" },
+      { label: "Quiz builder", icon: LuClock4, count: 6, id: "quizBuilder" },
       { label: "Students", icon: LuUsers, count: 142, id: "students" },
       { label: "Analytics", icon: FiBarChart2, id: "analytics" },
     ],
@@ -52,7 +51,6 @@ export const sections: NavSection[] = [
   {
     heading: "Account",
     items: [
-      { label: "Profile", icon: LiaUserSolid, id: "profile" },
       { label: "Settings", icon: FiSettings, id: "settings" },
     ],
   },

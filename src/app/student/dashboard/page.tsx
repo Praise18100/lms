@@ -1,9 +1,9 @@
 "use client";
 
-import DashboardHeader from "@/components/student/dashboard/dashboardHeader";
+import DashboardHeader from "@/components/pages/student/dashboard/dashboardHeader";
 import { Flex, Text } from "@chakra-ui/react";
-import Section1 from "@/components/student/dashboard/section1";
-import Section2 from "@/components/student/dashboard/section2";
+import Section1 from "@/components/pages/student/dashboard/section1";
+import Section2 from "@/components/pages/student/dashboard/section2";
 
 export default function Dashboard() {
   return (

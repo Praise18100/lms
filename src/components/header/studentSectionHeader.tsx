@@ -36,7 +36,7 @@ const sections: Record<string, SectionItem> = {
   },
 };
 
-export default function SectionHeader() {
+export default function StudentSectionHeader() {
   const { activeId } = useNavbarState();
   const section = sections[activeId] ?? { feature: activeId, info: "" };
   const { feature, info, button, href } = section;
@@ -70,7 +70,7 @@ export default function SectionHeader() {
         </Text>
       </VStack>
 
-      {button && href && (
+      {href && button ? (
         <Link href={href}>
           <Button
             px={4}
@@ -81,7 +81,16 @@ export default function SectionHeader() {
             {button}
           </Button>
         </Link>
-      )}
+      ) : button ? (
+        <Button
+          px={4}
+          borderRadius="xl"
+          colorPalette="primary"
+          fontSize={{ base: "xs", md: "sm" }}
+        >
+          {button}
+        </Button>
+        ) : null}
     </Flex>
   );
 }

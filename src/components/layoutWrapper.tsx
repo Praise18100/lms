@@ -35,7 +35,7 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
   
   return (
     <NavbarProvider>
-      <Flex direction="row" align="stretch" minH="100vh" position={"relative"}>
+      <Flex direction="row" align="stretch" minH="100vh" >
       {pathname.startsWith("/instructor") ? (
             <InstructorNavbar />
           ) : (
@@ -43,7 +43,7 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
           )}
         <Flex flex={1} direction="column" minW={0}>
           <Header />
-          <Flex flex={1} py={{ base: 4, md: 6 }} bg="primary.50" position={"relative"}>
+          <Flex flex={1} py={{ base: 4, md: 6 }} bg="primary.50" >
             {children}
           </Flex>
         </Flex>

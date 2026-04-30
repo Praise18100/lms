@@ -1,5 +1,5 @@
 "use client";
-import SectionHeader from "@/components/header/sectionHeader";
+import SectionHeader from "@/components/header/studentSectionHeader";
 import { Flex } from "@chakra-ui/react";
 
 export default function Dashboard() {

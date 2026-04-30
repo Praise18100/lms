@@ -45,12 +45,12 @@ export default function Notification() {
 
       <VStack gap={5} align="stretch">
         <ToggleRow
-          label="Quiz reminders"
-          description="24h before a quiz is due"
+          label="Auto-quiz generation"
+          description="AI creates quizzes after every upload"
         />
         <ToggleRow
-          label="New content alerts"
-          description="When instructor uploads new material"
+          label="New content processing alerts"
+          description="When AI processes new material"
         />
       </VStack>
     </Box>
